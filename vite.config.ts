@@ -15,5 +15,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
-  base: "/premium-developer-portfolio/",
+  base: "/webdev_port/",
 });
