@@ -309,7 +309,7 @@ const TimelineItem = ({ role, company, period, description, skills, index }: {
       className="relative pl-8 pb-12 last:pb-0"
     >
       <div className="absolute left-0 top-0 w-4 h-4 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 shadow-lg shadow-indigo-500/50" />
-      {index !== 2 && <div className="absolute left-[7px] top-4 w-[2px] h-full bg-gradient-to-b from-indigo-500/50 to-transparent" />}
+      {index !== experiences.length - 1 && <div className="absolute left-[7px] top-4 w-[2px] h-full bg-gradient-to-b from-indigo-500/50 to-transparent" />}
       <GlassCard className="p-6 ml-4">
         <div className="flex flex-wrap items-center gap-3 mb-2">
           <h3 className="text-xl font-bold text-slate-800 dark:text-white">{role}</h3>
@@ -603,14 +603,6 @@ export default function App() {
     <div className={`min-h-screen transition-colors duration-500 ${theme === 'dark' ? 'bg-[#0a0a0f] text-white' : 'bg-slate-50 text-slate-900'}`}>
       {/* Global Styles */}
       <style>{`
-        * {
-          cursor: none;
-        }
-        @media (max-width: 768px) {
-          * {
-            cursor: auto;
-          }
-        }
         .glass-button {
           backdrop-filter: blur(10px);
           background: rgba(255, 255, 255, 0.1);
@@ -1107,7 +1099,7 @@ export default function App() {
               viewport={{ once: true }}
             >
               <GlassCard className="p-8">
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                   <div>
                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Name</label>
                     <input
